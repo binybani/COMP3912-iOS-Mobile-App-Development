@@ -6,7 +6,9 @@
 //
 
 import UIKit
-
+import Firebase
+import GoogleSignIn
+//import FacebookLogin
 
 class ViewController: UIViewController {
 
@@ -16,16 +18,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-//        loginButton.layer.cornerRadius = 50
-//        signupButton.layer.cornerRadius = 50
-//
-//        loginButton.layer.shadowColor = UIColor.gray.cgColor
-//        loginButton.layer.shadowOpacity = 1
-//
-//        signupButton.layer.shadowColor = UIColor.gray.cgColor
-//        signupButton.layer.shadowOpacity = 1
 
+        loginButton.layer.cornerRadius = 25
+        signupButton.layer.cornerRadius = 25
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -39,9 +34,5 @@ class ViewController: UIViewController {
         loginVC.titleValue = "Log In"
         self.navigationController?.pushViewController(loginVC, animated: true)
     }
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let destinationVC = segue.destination as! LoginViewController
-//        destinationVC.titleValue = "Sign Up"
-//    }
 }
 

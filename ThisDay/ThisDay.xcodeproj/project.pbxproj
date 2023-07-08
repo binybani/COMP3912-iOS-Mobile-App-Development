@@ -13,11 +13,14 @@
 		311DBA092A4A57BB00FDE6B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 311DBA072A4A57BB00FDE6B3 /* Main.storyboard */; };
 		311DBA0B2A4A57BD00FDE6B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 311DBA0A2A4A57BD00FDE6B3 /* Assets.xcassets */; };
 		311DBA0E2A4A57BD00FDE6B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 311DBA0C2A4A57BD00FDE6B3 /* LaunchScreen.storyboard */; };
-		31919B182A4A7E7800444E4D /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31919B172A4A7E7800444E4D /* SignupViewController.swift */; };
 		31919B1A2A4BB81C00444E4D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31919B192A4BB81C00444E4D /* LoginViewController.swift */; };
 		31919B1C2A4BCFB600444E4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31919B1B2A4BCFB600444E4D /* GoogleService-Info.plist */; };
-		31919B1F2A4BD7BD00444E4D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 31919B1E2A4BD7BD00444E4D /* FirebaseAnalytics */; };
 		31919B222A4C159A00444E4D /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 31919B212A4C159A00444E4D /* FacebookLogin */; };
+		31919B262A4E28A500444E4D /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 31919B252A4E28A500444E4D /* GoogleSignIn */; };
+		31919B282A4E28A500444E4D /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 31919B272A4E28A500444E4D /* GoogleSignInSwift */; };
+		31F19F9E2A54C4D3004FF568 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31919B172A4A7E7800444E4D /* SignupViewController.swift */; };
+		31F19FA02A555034004FF568 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F19F9F2A555034004FF568 /* HomeViewController.swift */; };
+		87C6FFB98C10BA390299E7AD /* Pods_ThisDay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD4CD9C75A2CBB3C4B3C267 /* Pods_ThisDay.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,10 @@
 		31919B172A4A7E7800444E4D /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		31919B192A4BB81C00444E4D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		31919B1B2A4BCFB600444E4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		31F19F9F2A555034004FF568 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		DAD4CD9C75A2CBB3C4B3C267 /* Pods_ThisDay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThisDay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD2B3D384AE7261EB2C7B300 /* Pods-ThisDay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThisDay.release.xcconfig"; path = "Target Support Files/Pods-ThisDay/Pods-ThisDay.release.xcconfig"; sourceTree = "<group>"; };
+		F5C29A3716FEC507D04F0B88 /* Pods-ThisDay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThisDay.debug.xcconfig"; path = "Target Support Files/Pods-ThisDay/Pods-ThisDay.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +47,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				31919B222A4C159A00444E4D /* FacebookLogin in Frameworks */,
-				31919B1F2A4BD7BD00444E4D /* FirebaseAnalytics in Frameworks */,
+				31919B262A4E28A500444E4D /* GoogleSignIn in Frameworks */,
+				31919B282A4E28A500444E4D /* GoogleSignInSwift in Frameworks */,
+				87C6FFB98C10BA390299E7AD /* Pods_ThisDay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +61,8 @@
 			children = (
 				311DBA002A4A57BB00FDE6B3 /* ThisDay */,
 				311DB9FF2A4A57BB00FDE6B3 /* Products */,
+				EA7F95DCDEBB42F190B81BCD /* Pods */,
+				8CF139331983B2FBFEFDE2BE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,8 +87,26 @@
 				31919B172A4A7E7800444E4D /* SignupViewController.swift */,
 				31919B192A4BB81C00444E4D /* LoginViewController.swift */,
 				31919B1B2A4BCFB600444E4D /* GoogleService-Info.plist */,
+				31F19F9F2A555034004FF568 /* HomeViewController.swift */,
 			);
 			path = ThisDay;
+			sourceTree = "<group>";
+		};
+		8CF139331983B2FBFEFDE2BE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DAD4CD9C75A2CBB3C4B3C267 /* Pods_ThisDay.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EA7F95DCDEBB42F190B81BCD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F5C29A3716FEC507D04F0B88 /* Pods-ThisDay.debug.xcconfig */,
+				DD2B3D384AE7261EB2C7B300 /* Pods-ThisDay.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,9 +116,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 311DBA122A4A57BD00FDE6B3 /* Build configuration list for PBXNativeTarget "ThisDay" */;
 			buildPhases = (
+				2834E6D1927167C368008285 /* [CP] Check Pods Manifest.lock */,
 				311DB9FA2A4A57BB00FDE6B3 /* Sources */,
 				311DB9FB2A4A57BB00FDE6B3 /* Frameworks */,
 				311DB9FC2A4A57BB00FDE6B3 /* Resources */,
+				0CC92ED518548A9485086968 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -97,8 +128,9 @@
 			);
 			name = ThisDay;
 			packageProductDependencies = (
-				31919B1E2A4BD7BD00444E4D /* FirebaseAnalytics */,
 				31919B212A4C159A00444E4D /* FacebookLogin */,
+				31919B252A4E28A500444E4D /* GoogleSignIn */,
+				31919B272A4E28A500444E4D /* GoogleSignInSwift */,
 			);
 			productName = ThisDay;
 			productReference = 311DB9FE2A4A57BB00FDE6B3 /* ThisDay.app */;
@@ -129,8 +161,8 @@
 			);
 			mainGroup = 311DB9F52A4A57BB00FDE6B3;
 			packageReferences = (
-				31919B1D2A4BD7BD00444E4D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				31919B202A4C159A00444E4D /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+				31919B242A4E28A500444E4D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 311DB9FF2A4A57BB00FDE6B3 /* Products */;
 			projectDirPath = "";
@@ -155,6 +187,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0CC92ED518548A9485086968 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ThisDay/Pods-ThisDay-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ThisDay/Pods-ThisDay-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ThisDay/Pods-ThisDay-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2834E6D1927167C368008285 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ThisDay-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		311DB9FA2A4A57BB00FDE6B3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -162,9 +236,10 @@
 			files = (
 				311DBA062A4A57BB00FDE6B3 /* ViewController.swift in Sources */,
 				311DBA022A4A57BB00FDE6B3 /* AppDelegate.swift in Sources */,
-				31919B182A4A7E7800444E4D /* SignupViewController.swift in Sources */,
+				31F19F9E2A54C4D3004FF568 /* SignupViewController.swift in Sources */,
 				31919B1A2A4BB81C00444E4D /* LoginViewController.swift in Sources */,
 				311DBA042A4A57BB00FDE6B3 /* SceneDelegate.swift in Sources */,
+				31F19FA02A555034004FF568 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,9 +381,11 @@
 		};
 		311DBA132A4A57BD00FDE6B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5C29A3716FEC507D04F0B88 /* Pods-ThisDay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ThisDay/ThisDay.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -318,6 +395,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -333,9 +411,11 @@
 		};
 		311DBA142A4A57BD00FDE6B3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD2B3D384AE7261EB2C7B300 /* Pods-ThisDay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ThisDay/ThisDay.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -345,6 +425,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -382,14 +463,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		31919B1D2A4BD7BD00444E4D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.0.0;
-			};
-		};
 		31919B202A4C159A00444E4D /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
@@ -398,18 +471,31 @@
 				minimumVersion = 14.0.0;
 			};
 		};
+		31919B242A4E28A500444E4D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		31919B1E2A4BD7BD00444E4D /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 31919B1D2A4BD7BD00444E4D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
 		31919B212A4C159A00444E4D /* FacebookLogin */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 31919B202A4C159A00444E4D /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
 			productName = FacebookLogin;
+		};
+		31919B252A4E28A500444E4D /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 31919B242A4E28A500444E4D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		31919B272A4E28A500444E4D /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 31919B242A4E28A500444E4D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
