@@ -11,6 +11,7 @@ import GoogleSignIn
 //import FacebookLogin
 
 class ViewController: UIViewController {
+    var window: UIWindow?
 
     @IBOutlet weak var loginButton: UIButton!
     
@@ -21,6 +22,13 @@ class ViewController: UIViewController {
 
         loginButton.layer.cornerRadius = 25
         signupButton.layer.cornerRadius = 25
+        if let user = Auth.auth().currentUser {
+            // Go to home view controller if there is a logged in user
+            let tabBarController = storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") as! UITabBarController
+            tabBarController.title = "This Day"
+            self.navigationController?.pushViewController(tabBarController, animated: true)
+
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

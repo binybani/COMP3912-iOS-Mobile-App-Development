@@ -13,6 +13,7 @@ target 'ThisDay' do
   pod 'GoogleSignIn'
   pod 'Bolts'
   pod 'FBSDKCoreKit'
+  pod 'FSCalendar'
   
   # Pods for ThisDay
 

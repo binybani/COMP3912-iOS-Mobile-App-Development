@@ -120,9 +120,10 @@ class SignupViewController: UIViewController {
                 if let error = error {
                     print(error)
                 } else {
-                    let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "homeVCID") as! HomeViewController
-                    homeVC.titleValue = "Home"
-                    self.navigationController?.pushViewController(homeVC, animated: true)
+                    self.showTabBar()
+//                    let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "homeVCID") as! HomeViewController
+//                    homeVC.titleValue = "Home"
+//                    self.navigationController?.pushViewController(homeVC, animated: true)
                 }
             }
         }
@@ -144,7 +145,14 @@ class SignupViewController: UIViewController {
                 Auth.auth().signIn(with: credential) { authResult, error in
                     if let error = error {
                         print("Login failed. Error: \(error.localizedDescription)")
-                    } else if let user = authResult?.user {
+                    } else {
+                        self.showTabBar()
+//                        let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "homeVCID") as! HomeViewController
+//                        homeVC.titleValue = "Home"
+//                        self.navigationController?.pushViewController(homeVC, animated: true)
+                    
+                    
+//                    if let user = authResult?.user {
 //                        if let email = user.email {
 //                            // Do something with the email
 //                        }
@@ -209,8 +217,14 @@ class SignupViewController: UIViewController {
         
             simpleAlert(self, message: "\(user.email!)'s registration is complete.", title: "OK") { action in
                 self.dismiss(animated: true, completion: nil)
+                self.showTabBar()
             }
         }
+    }
+    func showTabBar() {
+        let tabBarController = storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") as! UITabBarController
+        tabBarController.title = "Home"
+        self.navigationController?.pushViewController(tabBarController, animated: true)
     }
 }
 

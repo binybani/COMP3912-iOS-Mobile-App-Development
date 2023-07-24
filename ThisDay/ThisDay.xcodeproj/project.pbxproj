@@ -13,13 +13,21 @@
 		311DBA092A4A57BB00FDE6B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 311DBA072A4A57BB00FDE6B3 /* Main.storyboard */; };
 		311DBA0B2A4A57BD00FDE6B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 311DBA0A2A4A57BD00FDE6B3 /* Assets.xcassets */; };
 		311DBA0E2A4A57BD00FDE6B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 311DBA0C2A4A57BD00FDE6B3 /* LaunchScreen.storyboard */; };
+		314E4DEA2A6BC1810029EF9D /* NewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314E4DE92A6BC1810029EF9D /* NewGroupViewController.swift */; };
+		314E4DEC2A6BCF3A0029EF9D /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314E4DEB2A6BCF3A0029EF9D /* ProfileTableViewCell.swift */; };
+		315722742A6A61B7006C7983 /* GroupInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315722732A6A61B7006C7983 /* GroupInfoViewController.swift */; };
 		31919B1A2A4BB81C00444E4D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31919B192A4BB81C00444E4D /* LoginViewController.swift */; };
 		31919B1C2A4BCFB600444E4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31919B1B2A4BCFB600444E4D /* GoogleService-Info.plist */; };
 		31919B222A4C159A00444E4D /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 31919B212A4C159A00444E4D /* FacebookLogin */; };
 		31919B262A4E28A500444E4D /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 31919B252A4E28A500444E4D /* GoogleSignIn */; };
 		31919B282A4E28A500444E4D /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 31919B272A4E28A500444E4D /* GoogleSignInSwift */; };
+		319B38CB2A628BA300A39F89 /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B38CA2A628BA300A39F89 /* GroupsTableViewCell.swift */; };
+		31EE35D22A689843005A5A5A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EE35D12A689843005A5A5A /* TabBarViewController.swift */; };
+		31EE35D42A68FD18005A5A5A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EE35D32A68FD18005A5A5A /* SearchViewController.swift */; };
+		31EE35D62A68FD4E005A5A5A /* MyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EE35D52A68FD4E005A5A5A /* MyAccountViewController.swift */; };
 		31F19F9E2A54C4D3004FF568 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31919B172A4A7E7800444E4D /* SignupViewController.swift */; };
 		31F19FA02A555034004FF568 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F19F9F2A555034004FF568 /* HomeViewController.swift */; };
+		31F19FBE2A626B7A004FF568 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F19FBD2A626B7A004FF568 /* GroupsViewController.swift */; };
 		87C6FFB98C10BA390299E7AD /* Pods_ThisDay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD4CD9C75A2CBB3C4B3C267 /* Pods_ThisDay.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,10 +40,18 @@
 		311DBA0A2A4A57BD00FDE6B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		311DBA0D2A4A57BD00FDE6B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		311DBA0F2A4A57BD00FDE6B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		314E4DE92A6BC1810029EF9D /* NewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupViewController.swift; sourceTree = "<group>"; };
+		314E4DEB2A6BCF3A0029EF9D /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		315722732A6A61B7006C7983 /* GroupInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInfoViewController.swift; sourceTree = "<group>"; };
 		31919B172A4A7E7800444E4D /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		31919B192A4BB81C00444E4D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		31919B1B2A4BCFB600444E4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		319B38CA2A628BA300A39F89 /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
+		31EE35D12A689843005A5A5A /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		31EE35D32A68FD18005A5A5A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		31EE35D52A68FD4E005A5A5A /* MyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountViewController.swift; sourceTree = "<group>"; };
 		31F19F9F2A555034004FF568 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		31F19FBD2A626B7A004FF568 /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 		DAD4CD9C75A2CBB3C4B3C267 /* Pods_ThisDay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThisDay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD2B3D384AE7261EB2C7B300 /* Pods-ThisDay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThisDay.release.xcconfig"; path = "Target Support Files/Pods-ThisDay/Pods-ThisDay.release.xcconfig"; sourceTree = "<group>"; };
 		F5C29A3716FEC507D04F0B88 /* Pods-ThisDay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThisDay.debug.xcconfig"; path = "Target Support Files/Pods-ThisDay/Pods-ThisDay.debug.xcconfig"; sourceTree = "<group>"; };
@@ -83,11 +99,19 @@
 				311DBA072A4A57BB00FDE6B3 /* Main.storyboard */,
 				311DBA0A2A4A57BD00FDE6B3 /* Assets.xcassets */,
 				311DBA0C2A4A57BD00FDE6B3 /* LaunchScreen.storyboard */,
-				311DBA0F2A4A57BD00FDE6B3 /* Info.plist */,
 				31919B172A4A7E7800444E4D /* SignupViewController.swift */,
+				311DBA0F2A4A57BD00FDE6B3 /* Info.plist */,
 				31919B192A4BB81C00444E4D /* LoginViewController.swift */,
 				31919B1B2A4BCFB600444E4D /* GoogleService-Info.plist */,
 				31F19F9F2A555034004FF568 /* HomeViewController.swift */,
+				31F19FBD2A626B7A004FF568 /* GroupsViewController.swift */,
+				319B38CA2A628BA300A39F89 /* GroupsTableViewCell.swift */,
+				31EE35D12A689843005A5A5A /* TabBarViewController.swift */,
+				31EE35D32A68FD18005A5A5A /* SearchViewController.swift */,
+				31EE35D52A68FD4E005A5A5A /* MyAccountViewController.swift */,
+				315722732A6A61B7006C7983 /* GroupInfoViewController.swift */,
+				314E4DE92A6BC1810029EF9D /* NewGroupViewController.swift */,
+				314E4DEB2A6BCF3A0029EF9D /* ProfileTableViewCell.swift */,
 			);
 			path = ThisDay;
 			sourceTree = "<group>";
@@ -234,12 +258,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31EE35D42A68FD18005A5A5A /* SearchViewController.swift in Sources */,
+				314E4DEC2A6BCF3A0029EF9D /* ProfileTableViewCell.swift in Sources */,
+				31F19FBE2A626B7A004FF568 /* GroupsViewController.swift in Sources */,
+				314E4DEA2A6BC1810029EF9D /* NewGroupViewController.swift in Sources */,
 				311DBA062A4A57BB00FDE6B3 /* ViewController.swift in Sources */,
 				311DBA022A4A57BB00FDE6B3 /* AppDelegate.swift in Sources */,
 				31F19F9E2A54C4D3004FF568 /* SignupViewController.swift in Sources */,
+				31EE35D62A68FD4E005A5A5A /* MyAccountViewController.swift in Sources */,
+				31EE35D22A689843005A5A5A /* TabBarViewController.swift in Sources */,
 				31919B1A2A4BB81C00444E4D /* LoginViewController.swift in Sources */,
+				315722742A6A61B7006C7983 /* GroupInfoViewController.swift in Sources */,
 				311DBA042A4A57BB00FDE6B3 /* SceneDelegate.swift in Sources */,
 				31F19FA02A555034004FF568 /* HomeViewController.swift in Sources */,
+				319B38CB2A628BA300A39F89 /* GroupsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

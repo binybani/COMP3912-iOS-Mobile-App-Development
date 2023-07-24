@@ -77,9 +77,10 @@ class LoginViewController: UIViewController {
                 if let e = error {
                     print(e)
                 } else {
-                    let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "homeVCID") as! HomeViewController
-                    homeVC.titleValue = "Home"
-                    self.navigationController?.pushViewController(homeVC, animated: true)
+                    showTabBar()
+//                    let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "homeVCID") as! HomeViewController
+//                    homeVC.titleValue = "Home"
+//                    self.navigationController?.pushViewController(homeVC, animated: true)
                 }
             }
         }
@@ -111,9 +112,10 @@ class LoginViewController: UIViewController {
                 if let error = error {
                     print(error)
                 } else {
-                    let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "homeVCID") as! HomeViewController
-                    homeVC.titleValue = "Home"
-                    self.navigationController?.pushViewController(homeVC, animated: true)
+                    showTabBar()
+//                    let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "homeVCID") as! HomeViewController
+//                    homeVC.titleValue = "Home"
+//                    self.navigationController?.pushViewController(homeVC, animated: true)
                 }
             }
         }
@@ -135,7 +137,13 @@ class LoginViewController: UIViewController {
                 Auth.auth().signIn(with: credential) { authResult, error in
                     if let error = error {
                         print("Login failed. Error: \(error.localizedDescription)")
-                    } else if let user = authResult?.user {
+                    } else {
+                        self.showTabBar()
+//                        let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "homeVCID") as! HomeViewController
+//                        homeVC.titleValue = "Home"
+//                        self.navigationController?.pushViewController(homeVC, animated: true)
+                    
+//                    if let user = authResult?.user {
 //                        if let email = user.email {
 //                            // Do something with the email
 //                        }
@@ -159,6 +167,12 @@ class LoginViewController: UIViewController {
         let signupVC = storyboard?.instantiateViewController(withIdentifier: "signupVCID") as! SignupViewController
         signupVC.titleValue = "Sign Up"
         self.navigationController?.pushViewController(signupVC, animated: true)
+    }
+    
+    func showTabBar() {
+        let tabBarController = storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") as! UITabBarController
+        tabBarController.title = "Home"
+        self.navigationController?.pushViewController(tabBarController, animated: true)
     }
 }
 
