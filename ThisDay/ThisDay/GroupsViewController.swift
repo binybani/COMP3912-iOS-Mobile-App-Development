@@ -6,77 +6,160 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
+import SwiftUI
 
+struct GroupInfo {
+    var groupName: String
+    var description: String
+    var peopleLimit: Int
+    var groupId: String
+    var eventTitle: String
+    var startDate: String
+    var endDate: String
+    var pickedDate: String
+    var eventNote: String
+}
 
 class GroupsViewController: UITableViewController {
     
     @IBOutlet weak var addGroupButton: UIButton!
     @IBOutlet var groupTableView: UITableView!
     
-    var data = [
-        (date: "Sep 5, Sunday 12:00-15:00", name: "Uni friends", note: "The Keg Steakhouse + Bar - Dunsmuir"),
-        (date: "Sep 6, Monday 14:00-17:00", name: "Workout member", note: "Gym session"),
-        (date: "Sep 7, Tuesday 19:00-22:00", name: "Party Friends", note: "Club night"),
-        (date: "Sep 8, Wednesday 19:00-22:00", name: "Workout membe", note: "We will do the legs and back workou"),
-        (date: "Sep 9, Thursday 19:00-22:00", name: "Group 1 ", note: "ABCDEF"),
-        (date: "Sep 10, Friday 19:00-22:00", name: "Group 2", note: "GHIJKLM"),
-        (date: "Sep 11, Saturday 19:00-22:00", name: "Group 3", note: "OPQRSTU"),
-        (date: "Sep 12, Suunday 19:00-22:00", name: "Group 4", note: "VWXYZ"),
-        (date: "Sep 13, Monday 19:00-22:00", name: "Group 5", note: "TMI"),
-        (date: "Sep 14, Tuesday 19:00-22:00", name: "Group 6", note: "Chat"),
-        (date: "Sep 15, Wednesday 19:00-22:00", name: "Group 7", note: "Drink night"),
-        (date: "Sep 16, Thursday 19:00-22:00", name: "Group 8", note: "Talk night")
-    ]
+    var databaseRef: DatabaseReference = Database.database().reference()
+    var groupData: [GroupInfo] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         groupTableView.delegate = self
         groupTableView.dataSource = self
+        fetchGroupData()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleNewGroupCreated), name: .newGroupCreated, object: nil)
+    }
+
+    @objc func handleNewGroupCreated() {
+        fetchGroupData()
+        groupTableView.reloadData()
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .newGroupCreated, object: nil)
     }
     
+    func fetchGroupData() {
+        let databaseRef = Database.database().reference().child("groups")
+        databaseRef.observeSingleEvent(of: .value) { snapshot in
+            if let groupsDict = snapshot.value as? [String: [String: Any]] {
+                self.groupData.removeAll()
+                
+                for (groupId, groupInfo) in groupsDict {
+                    if let groupName = groupInfo["name"] as? String,
+                       let description = groupInfo["description"] as? String,
+                       let peopleLimit = groupInfo["peopleLimit"] as? Int,
+                       let eventInfo = groupInfo["event"] as? [String: String] {
+                        
+                        let eventTitle = eventInfo["eventName"] ?? ""
+                        let startDate = eventInfo["startDate"] ?? ""
+                        let endDate = eventInfo["endDate"] ?? ""
+                        let pickedDate = eventInfo["pickedDate"] ?? ""
+                        let eventNote = eventInfo["eventNote"] ?? ""
+
+                        let groupItem = GroupInfo(
+                            groupName: groupName,
+                            description: description,
+                            peopleLimit: peopleLimit,
+                            groupId: groupId,
+                            eventTitle: eventTitle,
+                            startDate: startDate,
+                            endDate: endDate,
+                            pickedDate: pickedDate,
+                            eventNote: eventNote
+                        )
+                        self.groupData.append(groupItem)
+                    }
+                }
+                self.groupTableView.reloadData()
+            }
+        }
+    }
     
     // Set header of section 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "My Groups"
     }
     
-    // 그룹 추가 버튼 액션 메서드
+    @IBAction func addNewGroupAction(_ sender: Any) {
+        addGroupButtonTapped()
+    }
+    // Add group method
     @objc func addGroupButtonTapped() {
-        // 그룹을 추가하는 로직을 구현합니다.
-        // 예를 들어, 그룹을 추가하는 팝업이나 뷰컨트롤러를 띄우는 등의 동작을 수행할 수 있습니다.
+        let newGroupView = UIHostingController(rootView: NewGroupView())
+        newGroupView.modalPresentationStyle = .pageSheet
+        present(newGroupView, animated: true, completion: nil)
     }
     
-    // 셀 삭제를 허용하는 메서드 구현
+    // Delete cell
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // 데이터 배열에서 항목 삭제
-            data.remove(at: indexPath.row)
-
-            // 테이블뷰에서도 삭제하도록 애니메이션과 함께 삭제
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            let groupToDelete = groupData[indexPath.row]
+            
+            if let user = Auth.auth().currentUser {
+                let userId = user.uid
+                let groupIdToDelete = groupToDelete.groupId
+                
+                let groupRef = databaseRef.child("groups").child(groupIdToDelete)
+                groupRef.removeValue { error, _ in
+                    if let error = error {
+                        print("Error deleting group: \(error)")
+                    } else {
+                        print("Group deleted successfully!")
+                    }
+                }
+                
+                groupData.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
         }
     }
+
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchGroupData()
         groupTableView.reloadData()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return groupData.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) as! GroupsTableViewCell
-        // Bring the info to display the cell from the data source array
-        let item = data[indexPath.row]
-        // Configure the cell...
-        cell.startDate.text = item.date
-        cell.groupName.text = item.name
-        cell.groupNote.text = item.note
 
+        let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) as! GroupsTableViewCell
+        let groupItem = groupData[indexPath.row]
+        cell.groupName.text = groupItem.groupName
+        cell.eventTitle.text = groupItem.eventTitle
+        cell.dateLabel.text = !groupItem.pickedDate.isEmpty ? "Picked: \(groupItem.pickedDate)" : "\(groupItem.startDate) to \(groupItem.endDate)"
         return cell
     }
     
-    
+    // Set behaviour when selecting cells
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let groupItem = groupData[indexPath.row]
+        print("Selected: \(groupItem)")
 
+         if let groupInfoVC = storyboard?.instantiateViewController(withIdentifier: "groupInfoVCID") as? GroupInfoViewController {
+            
+             groupInfoVC.titleValue = "This Day"
+             groupInfoVC.groupNameValue = groupItem.groupName
+             groupInfoVC.eventTitleValue = groupItem.eventTitle
+             groupInfoVC.groupId = groupItem.groupId
+             groupInfoVC.startDateValue = groupItem.startDate
+             groupInfoVC.endDateValue = groupItem.endDate
+             groupInfoVC.pickedDateValue = groupItem.pickedDate
+
+             navigationController?.pushViewController(groupInfoVC, animated: true)
+         }
+    }
 }

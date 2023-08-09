@@ -138,10 +138,10 @@
             filePath = "ThisDay/SignupViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "facebookSignup(_:)"
-            landmarkType = "7">
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "SignupViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -154,10 +154,134 @@
             filePath = "ThisDay/MyAccountViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "logoutAction(_:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2003F81E-0B38-4BFB-B937-7FB12269E2D7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ThisDay/GroupsTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2"
+            endingLineNumber = "2"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C2F44057-0A12-4FDA-9FC4-107B8C9C1E49"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ThisDay/SignupViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "SignupViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "C2F44057-0A12-4FDA-9FC4-107B8C9C1E49 - e6a6c8f95fc3072b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ThisDay.SignupViewController.passwordTF.getter : Swift.Optional&lt;__C.UITextField&gt;"
+                  moduleName = "ThisDay"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/beaniemacbook/Documents/COMP3912-iOS%20Mobile%20App%20Development/project/COMP3912-iOS-Mobile-App-Development/ThisDay/ThisDay/SignupViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "85">
+               </Location>
+               <Location
+                  uuid = "C2F44057-0A12-4FDA-9FC4-107B8C9C1E49 - e1455974f89df337"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ThisDay.SignupViewController.passwordTF.setter : Swift.Optional&lt;__C.UITextField&gt;"
+                  moduleName = "ThisDay"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/beaniemacbook/Documents/COMP3912-iOS%20Mobile%20App%20Development/project/COMP3912-iOS-Mobile-App-Development/ThisDay/ThisDay/SignupViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "C2F44057-0A12-4FDA-9FC4-107B8C9C1E49 - c3178342a39cba26"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ThisDay.SignupViewController.passwordTF.modify : Swift.Optional&lt;__C.UITextField&gt;"
+                  moduleName = "ThisDay"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/beaniemacbook/Documents/COMP3912-iOS%20Mobile%20App%20Development/project/COMP3912-iOS-Mobile-App-Development/ThisDay/ThisDay/SignupViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "C2F44057-0A12-4FDA-9FC4-107B8C9C1E49 - 765305630d4037a0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ThisDay.SignupViewController.passwordTF.modify : Swift.Optional&lt;__C.UITextField&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "ThisDay"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/beaniemacbook/Documents/COMP3912-iOS%20Mobile%20App%20Development/project/COMP3912-iOS-Mobile-App-Development/ThisDay/ThisDay/SignupViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  uuid = "C2F44057-0A12-4FDA-9FC4-107B8C9C1E49 - 411720916e0f022e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ThisDay.SignupViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; ThisDay.SignupViewController"
+                  moduleName = "ThisDay"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/beaniemacbook/Documents/COMP3912-iOS%20Mobile%20App%20Development/project/COMP3912-iOS-Mobile-App-Development/ThisDay/ThisDay/SignupViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "275">
+               </Location>
+               <Location
+                  uuid = "C2F44057-0A12-4FDA-9FC4-107B8C9C1E49 - 791ec61c0e1969f1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ThisDay.SignupViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;ThisDay.SignupViewController&gt;"
+                  moduleName = "ThisDay"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/beaniemacbook/Documents/COMP3912-iOS%20Mobile%20App%20Development/project/COMP3912-iOS-Mobile-App-Development/ThisDay/ThisDay/SignupViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "232">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

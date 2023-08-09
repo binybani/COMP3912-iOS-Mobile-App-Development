@@ -12,6 +12,9 @@ import FacebookLogin
 
 class SignupViewController: UIViewController {
     
+    var databaseRef: DatabaseReference!
+    
+    @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var passwordConfrimTF: UITextField!
@@ -26,8 +29,14 @@ class SignupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        databaseRef = Database.database().reference()
+
         title = titleValue
         //Connect the delegate and data source for the text fields - needed for validation
+        nameTF.delegate = self
+        nameTF.layer.cornerRadius = 25
+        nameTF.clipsToBounds = true
+        
         emailTF.delegate = self
         emailTF.layer.cornerRadius = 25
         emailTF.clipsToBounds = true
@@ -116,14 +125,19 @@ class SignupViewController: UIViewController {
             
             let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: user.accessToken.tokenString)
             Auth.auth().signIn(with: credential) { result, error in
+                if let user = result?.user {
+                    // Successfully signed in, save user's name and email
+                    if let name = user.displayName {
+                        self.saveUserData(uid: user.uid, name: name, email: user.email ?? "")
+                    }
+                    
+                    self.showTabBar()
+                }
                 // At this point, our user is signed in
                 if let error = error {
                     print(error)
                 } else {
                     self.showTabBar()
-//                    let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "homeVCID") as! HomeViewController
-//                    homeVC.titleValue = "Home"
-//                    self.navigationController?.pushViewController(homeVC, animated: true)
                 }
             }
         }
@@ -143,28 +157,18 @@ class SignupViewController: UIViewController {
                 }
                 let credential = FacebookAuthProvider.credential(withAccessToken: token)
                 Auth.auth().signIn(with: credential) { authResult, error in
+                    if let user = authResult?.user {
+                        // Successfully signed in, save user's name and email
+                        if let name = user.displayName {
+                            self.saveUserData(uid: user.uid, name: name, email: user.email ?? "")
+                        }
+                        
+                        self.showTabBar()
+                    }
                     if let error = error {
                         print("Login failed. Error: \(error.localizedDescription)")
                     } else {
                         self.showTabBar()
-//                        let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "homeVCID") as! HomeViewController
-//                        homeVC.titleValue = "Home"
-//                        self.navigationController?.pushViewController(homeVC, animated: true)
-                    
-                    
-//                    if let user = authResult?.user {
-//                        if let email = user.email {
-//                            // Do something with the email
-//                        }
-//                        if let displayName = user.displayName {
-//                            // Do something with the display name
-//                        }
-//                        if let uid = user.uid {
-//                            // Do something with the UID
-//                        }
-//                        if let photoURL = user.photoURL {
-//                            // Do something with the photo URL
-//                        }
                     }
                 }
             }
@@ -180,7 +184,8 @@ class SignupViewController: UIViewController {
     }
     
     @IBAction func signupAction(_ sender: Any) {
-        guard let userEmail = emailTF.text,
+        guard let userName = nameTF.text,
+              let userEmail = emailTF.text,
               let userPassword = passwordTF.text,
               let userPasswordConfirm = passwordConfrimTF.text else {
             return
@@ -195,7 +200,7 @@ class SignupViewController: UIViewController {
         
         func simpleAlert(_ controller: UIViewController, message: String, title: String, handler: ((UIAlertAction) -> Void)?) {
             let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "확인", style: .default, handler: handler)
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: handler)
             alertController.addAction(alertAction)
             controller.present(alertController, animated: true, completion: nil)
         }
@@ -214,13 +219,34 @@ class SignupViewController: UIViewController {
                 simpleAlert(self, message: error!.localizedDescription)
                 return
             }
-        
-            simpleAlert(self, message: "\(user.email!)'s registration is complete.", title: "OK") { action in
+            // Successfully created the user account, now save user's name and email to the database
+            saveUserData(uid: user.uid, name: userName, email: user.email ?? "")
+            
+            simpleAlert(self, message: "\(userName)'s registration is complete.", title: "OK") { action in
                 self.dismiss(animated: true, completion: nil)
                 self.showTabBar()
             }
         }
     }
+    
+    func saveUserData(uid: String, name: String, email: String) {
+        let userData: [String: Any] = [
+            "name": name,
+            "email": email
+            // Add other user-related data as needed
+        ]
+        
+        let userRef = databaseRef.child("users").child(uid)
+        userRef.setValue(userData) { (error, _) in
+            if let error = error {
+                print("Error saving user data: \(error.localizedDescription)")
+            } else {
+                print("User data saved successfully")
+            }
+        }
+    }
+
+    
     func showTabBar() {
         let tabBarController = storyboard?.instantiateViewController(withIdentifier: "TabBarViewController") as! UITabBarController
         tabBarController.title = "Home"

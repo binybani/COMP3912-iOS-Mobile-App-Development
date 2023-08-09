@@ -7,21 +7,59 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 class MyAccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    // 테이블뷰에 표시될 항목들을 배열로 저장
+    // Elements for table view
     let items = ["Setting", "Friends", "Support", "Share", "About Us"]
+    var databaseRef: DatabaseReference!
         
     @IBOutlet weak var profileTableView: UITableView!
     @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var editButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        databaseRef = Database.database().reference()
+        logoutButton.layer.cornerRadius = 25
+        editButton.layer.cornerRadius = 15
         profileTableView.delegate = self
         profileTableView.dataSource = self
+        profileTableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: "profileTVCID")
+        fetchUserData()
     }
+    
+    func fetchUserData() {
+        guard let user = Auth.auth().currentUser else {
+            return
+        }
+        
+        let userID = user.uid
+        
+        let userRef = databaseRef.child("users").child(userID)
+        
+        userRef.observeSingleEvent(of: .value) { (snapshot) in
+            if snapshot.exists() {
+                if let userData = snapshot.value as? [String: Any] {
+                    let userName = userData["name"] as? String ?? "N/A"
+                    let userEmail = userData["email"] as? String ?? "N/A"
+                    
+                    DispatchQueue.main.async {
+                        self.nameLabel.text = userName
+                        self.emailLabel.text = userEmail
+                    }
+                }
+            } else {
+                print("Document does not exist")
+            }
+        }
+    }
+
+
+
     
     @IBAction func logoutAction(_ sender: Any) {
         do {
@@ -43,23 +81,31 @@ class MyAccountViewController: UIViewController, UITableViewDelegate, UITableVie
             present(navigationController, animated: true, completion: nil)
         }
     }
-    // 섹션 수 설정
-        func numberOfSections(in tableView: UITableView) -> Int {
-            return 1
-        }
+    
+    // Set number of section
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-          cell.textLabel?.text = items[indexPath.row]
-          return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "profileTVCID", for: indexPath)
+        
+        cell.textLabel?.text = items[indexPath.row]
+        
+        // Add an accessory type to the cell (right arrow)
+        cell.accessoryType = .disclosureIndicator
+        
+        return cell
     }
-    // 셀 선택 시 동작 설정
+    
+    // Set behaviour when selecting cells
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedItem = items[indexPath.row]
-        print("선택된 항목: \(selectedItem)")
+        print("Selected: \(selectedItem)")
         // 선택된 항목에 따라 원하는 동작을 구현하세요.
         // 예를 들어, "Setting" 항목을 선택했을 때 설정 화면으로 이동하도록 구현할 수 있습니다.
     }
